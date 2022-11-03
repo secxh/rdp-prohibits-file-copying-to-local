@@ -1,6 +1,6 @@
 def Hhook(target_process):
  try:
-     session = frida.attach(target_process)
+     session = frida.attach(target_process) //target_process is the process_id of "clipbrd.exe"
      script = session.create_script("""
          var clipbrd = Module.getExportByName("user32.dll", "GetClipboardData");
          Interceptor.attach(clipbrd, {
